@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<style>
+    .form-algin{
+        margin-left: 300px;
+        margin-top: 150px;    
+    }
+</style>   
+{% endblock %}    
+
+{% block body %}
+    <div class="col-sm-6 form-algin bg-info">
+    <h1>Add Student Data</h1>
+        <form  action="student" method="post">
+            <div class="form-group">
+                <label for="name">Student Name</label>
+                <input type="text" class="form-control" name="name" id="name" placeholder="Enter Name">
+            </div>
+            <div class="form-group">
+                <label for="name">Class_name</label>
+                <input type="text" class="form-control" name="class_name" id="class" placeholder="Enter Class">
+            </div>
+            <div class="form-group">
+                <label for="name">Date of Birth</label>
+                <input type="date" class="form-control" name="dob" id="dob">
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-dark mb-2">Save</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block head %}
+<style>
+    .container{
+        margin-top: 50px;    
+    }
+</style>   
+{% endblock %} 
+{% block body %}
+    <h1 style="text-align: center;">Student Data</h1>
+    <a href="addStudent" class="btn btn-primary" style="float:right;"> Add Student Data</a>
+
+    <div class="container">
+        <div class="row">
+            {% if students | length == 0 %}
+            <h3>No Data Available </h3>
+            {% endif %}
+            
+            {% for student in students %}
+                <div class="col-sm-4">
+                    <div class="card text-white bg-dark">
+                        <div class="card-body">
+                            <h5 class="card-title">{{student.name}}</h5>
+                            <P>Class: {{student.class_name}}</P>
+                            <P>Date Of Birth: {{student.date_of_birth}}</P>
+                            <a href="updateStudent/{{student.id}}" class="btn btn-info">Edit</a>
+                            <a href="deleteStudent/{{student.id}}" class="btn btn-danger">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}    
+        </div>
+    </div>
+{% endblock %}
